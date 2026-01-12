@@ -1,0 +1,27 @@
+name: tts_demo
+description: Flutter + Piper TTS demo
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.0
+  just_audio: ^0.9.36
+  path_provider: ^2.1.2
+  file_picker: ^8.0.0
+  shared_preferences: ^2.2.2
+  
+flutter:
+  uses-material-design: true
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/app_icon.png"
+  min_sdk_android: 21
