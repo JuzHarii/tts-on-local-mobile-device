@@ -144,91 +144,33 @@ flutter run
 ```
 tts-on-local-mobile-device/
 │
-├── backend/                           # FastAPI Server (Python)
-│   │
-│   ├── models/                        # ONNX Model Directory
-│   │   ├── piper_model.onnx           # Main TTS model (150-300MB)
-│   │   └── piper_model.json           # Model config & metadata
-│   │
-│   ├── evaluation/                    # Model Evaluation Suite
-│   │   ├── audio/
-│   │   │   ├── baseline/              # Baseline model audio outputs
-│   │   │   └── finetuned/             # Fine-tuned model outputs
-│   │   ├── test_case.py               # Sample Vietnamese test sentences
-│   │   ├── generate_test_case.py      # Auto-generate diverse test cases
-│   │   ├── generate_audio.py          # Batch synthesis script
-│   │   ├── asr_whisper.py             # Audio-to-text validation (ASR)
-│   │   ├── eval_wer.py                # Word Error Rate calculator
-│   │   └── eval_rtf.py                # Real-Time Factor measurement
-│   │
-│   ├── services/                      # Core Business Logic
-│   │   ├── tts_engine.py              # Piper TTS wrapper
-│   │   ├── text_chunker.py            # Split long text intelligently
-│   │   ├── text_extractor.py          # Extract text from files
-│   │   └── audio_processor.py         # Audio post-processing
-│   │
-│   ├── routes/                        # API Endpoints
-│   │   ├── synthesis.py               # /synthesize endpoints
-│   │   ├── health.py                  # /health endpoint
-│   │   └── models.py                  # /models endpoint
-│   │
-│   ├── uploads/                       # Temporary file storage (auto-cleanup)
-│   ├── outputs/                       # Generated audio outputs
-│   ├── logs/                          # Server logs
-│   │
-│   ├── main.py                        # FastAPI app entry point
-│   ├── config.py                      # Configuration & constants
-│   ├── requirements.txt               # Python dependencies
-│   └── .env                           # Environment variables (ignored)
+├── backend/                     # FastAPI Server (Python)
+│   ├── models/                  # ONNX Models
+│   ├── services/                # TTS, text processing
+│   ├── evaluation/              # WER/CER/RTF testing
+│   ├── uploads/                 # Temp files
+│   ├── outputs/                 # Generated audio
+│   ├── main.py                  # FastAPI entry point
+│   ├── config.py                # Configuration
+│   └── requirements.txt         # Dependencies
 │
-├── mobile_app/                        # Flutter Application
-│   │
+├── mobile_app/                  # Flutter Application
 │   ├── lib/
-│   │   ├── main.dart                  # App entry point & main screen
-│   │   ├── tts_service.dart           # API client & service layer
-│   │   │
-│   │   ├── models/                    # Data models
-│   │   │   ├── synthesis_request.dart
-│   │   │   └── synthesis_response.dart
-│   │   │
-│   │   ├── screens/                   # UI Screens
-│   │   │   ├── home_screen.dart       # Main interface
-│   │   │   └── settings_screen.dart   # Configuration
-│   │   │
-│   │   ├── widgets/                   # Reusable UI components
-│   │   │   ├── text_input_widget.dart
-│   │   │   └── audio_player_widget.dart
-│   │   │
-│   │   ├── utils/                     # Utilities
-│   │   │   ├── constants.dart
-│   │   │   ├── logger.dart
-│   │   │   └── validators.dart
-│   │   │
-│   │   └── providers/                 # State management (if using Provider)
-│   │       └── tts_provider.dart
-│   │
-│   ├── assets/
-│   │   ├── images/                    # App icons, logos
-│   │   │   ├── app_icon.png
-│   │   │   └── logo.png
-│   │   └── fonts/                     # Custom fonts
-│   │
-│   ├── android/                       # Android native config
-│   │   ├── app/src/main/AndroidManifest.xml
-│   │   └── build.gradle
-│   │
-│   ├── ios/                           # iOS native config
-│   │   ├── Runner.xcworkspace
-│   │   └── Podfile
-│   │
-│   ├── pubspec.yaml                   # Flutter dependencies
-│   ├── pubspec.lock                   # Locked package versions
-│   ├── analysis_options.yaml          # Dart linter rules
-│   └── .gitignore
+│   │   ├── main.dart            # App entry point
+│   │   ├── tts_service.dart     # API client
+│   │   ├── screens/             # UI screens
+│   │   ├── widgets/             # UI components
+│   │   └── models/              # Data models
+│   ├── assets/                  # Images, fonts
+│   ├── android/                 # Android config
+│   ├── ios/                     # iOS config
+│   ├── pubspec.yaml             # Dependencies
+│   └── pubspec.lock             # Lock file
 │
-├── README.md                          # This file
-├── .gitignore                         # Git ignore patterns
-└── LICENSE                            # Project license
+├── README.md
+├── .gitignore
+└── LICENSE
+
 ```
 
 ---
